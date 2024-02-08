@@ -5,6 +5,12 @@ const patientModel = require("../models/patientModel")
 
 const router=express.Router()
 
+router.get("/view",async(req,res)=>
+{
+    let data=await patientModel.find()
+    res.json(data)
+})
+
 router.post("/add",async(req,res)=>{
     let data=req.body
     let patient=new patientModel(data)
